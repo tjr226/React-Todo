@@ -3,10 +3,10 @@ import React from "react";
 import "./Todo.css"
 
 class ToDoTask extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            task: "",
+            task: props.task,
             id: Date.now(),
             completed: false,
         };
