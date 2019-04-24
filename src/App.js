@@ -1,6 +1,5 @@
 import React from 'react';
 import ToDoForm from './components/TodoComponents/TodoForm';
-import ToDoTask from './components/TodoComponents/Todo';
 import ToDoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
@@ -10,10 +9,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      taskList: [{task:"test"}, {task:"test2"}],
-
-      // taskList: [],
-      task: {
+      taskList: [],
+      taskOnState: {
         task: '',
         id: Date.now(),
         completed: false,
@@ -23,31 +20,49 @@ class App extends React.Component {
   };
 
   handleChanges = event => {
-    console.log(event.target.name);
+    // console.log(event.target.value);
+    // console.log(event.target.name);
+    //  console.log(event.target.value);
     this.setState({
-      task: {
-        ...this.state.task,
+      taskOnState: {
+        ...this.state.taskOnState,
         [event.target.name]: event.target.value
       }
-    })
-  }
-  addTask = event => {
-    event.preventDefault();
-    this.setState({
-      taskList: [...this.state.taskList, this.state.task],
-      task: {}
     });
+    // console.log(this.state.taskOnState.id);
+
+  }
+
+  addTask = event => {
+    // console.log('add event firing');
+    event.preventDefault();
+    // console.log(this.state.taskOnState);
+    this.setState({
+      taskList: [...this.state.taskList, this.state.taskOnState],
+      taskOnState: {
+        task: '',
+        id: Date.now(),
+        completed: false,
+      },
+    });
+    // console.log(this.state.taskOnState);
+
+    // console.log(this.state.taskList);
   };
 
 
 
-  
+
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-        <ToDoList taskList={ this.state.taskList } />
-        <ToDoForm />
+        <h2>ToDoApp MVP</h2>
+        <ToDoList taskList={this.state.taskList} />
+        <ToDoForm
+          propTask={this.state.taskOnState}
+          handleChanges={this.handleChanges}
+          addTask={this.addTask}
+        />
       </div>
     );
   }
