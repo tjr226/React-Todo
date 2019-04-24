@@ -3,26 +3,14 @@ import React from "react";
 import "./Todo.css"
 import ToDoTask from "./Todo";
 
-
-class ToDoList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            taskList: props.taskList,
-        }
-    };
-
-    render() {
-        console.log(this.state.taskList);
-        console.log('todolist.js')
-        return (
-            <div>
-                {this.state.taskList.map(task => {
-                    return <ToDoTask task={task.task} />
-                })}
-            </div>
-        )
-    };
-};
+function ToDoList(props) {
+    return (
+        <div>
+            {props.taskList.map(task => {
+                return <ToDoTask task={task.task} />
+            })}
+        </div>
+    );
+}
 
 export default ToDoList
