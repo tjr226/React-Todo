@@ -14,6 +14,7 @@ class ToDoList extends React.Component {
 
     render() {
         console.log(this.state.taskList);
+        console.log('todolist.js')
         return (
             <div>
                 {this.state.taskList.map(task => {

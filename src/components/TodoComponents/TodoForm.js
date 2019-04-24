@@ -14,7 +14,7 @@ class ToDoForm extends React.Component {
                     type="text"
                     placeholder="...todo"
                 />
-                <button>Add Todo</button>
+                <button onClick={this.handleAddToDoClickEvent}>Add ToDo</button>
                 <button>Clear Completed</button>
             </div>
         );

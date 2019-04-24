@@ -16,6 +16,10 @@ class App extends React.Component {
     };
   };
 
+  handleAddToDoClickEvent = event => {
+    console.log("AddToDo button clicked")
+  }
+
   
   render() {
     return (
