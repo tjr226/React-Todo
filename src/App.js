@@ -11,6 +11,7 @@ class App extends React.Component {
     super();
     this.state = {
       taskList: [{task:"test"}, {task:"test2"}],
+      // taskList: [],
 
     };
   };

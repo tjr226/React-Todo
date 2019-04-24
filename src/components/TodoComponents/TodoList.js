@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./Todo.css"
+import ToDoTask from "./Todo";
 
 
 class ToDoList extends React.Component {
@@ -12,13 +13,11 @@ class ToDoList extends React.Component {
     };
 
     render() {
-        console.log("3");
-        console.log(this);
         console.log(this.state.taskList);
         return (
             <div>
                 {this.state.taskList.map(task => {
-                    return <div>{task.task}</div>
+                    return <ToDoTask task={task.task} />
                 })}
             </div>
         )
