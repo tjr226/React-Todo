@@ -11,14 +11,35 @@ class App extends React.Component {
     super();
     this.state = {
       taskList: [{task:"test"}, {task:"test2"}],
+
       // taskList: [],
+      task: {
+        task: '',
+        id: Date.now(),
+        completed: false,
+      }
 
     };
   };
 
-  handleAddToDoClickEvent = event => {
-    console.log("AddToDo button clicked")
+  handleChanges = event => {
+    console.log(event.target.name);
+    this.setState({
+      task: {
+        ...this.state.task,
+        [event.target.name]: event.target.value
+      }
+    })
   }
+  addTask = event => {
+    event.preventDefault();
+    this.setState({
+      taskList: [...this.state.taskList, this.state.task],
+      task: {}
+    });
+  };
+
+
 
   
   render() {
