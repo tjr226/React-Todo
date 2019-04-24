@@ -1,24 +1,18 @@
 import React from "react";
 
-import "./Todo.css"
+function ToDoForm(props) {
+    return (
 
-class ToDoForm extends React.Component {
-    constructor() {
-        super();
-    };
+        <div>
+            <input
+                type="text"
+                placeholder="...todo"
+            />
+            <button>Add ToDo</button>
+            <button>Clear Completed</button>
+        </div>
+    );
+}
 
-    render() {
-        return (
-            <div>
-                <input
-                    type="text"
-                    placeholder="...todo"
-                />
-                <button onClick={this.handleAddToDoClickEvent}>Add ToDo</button>
-                <button>Clear Completed</button>
-            </div>
-        );
-    };
-};
 
 export default ToDoForm
