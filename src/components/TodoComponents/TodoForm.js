@@ -3,7 +3,7 @@ import React from "react";
 function ToDoForm(props) {
     return (
 
-        <div>
+        <div className="form-div">
             <form onSubmit={props.addTask}>
             <input 
                 value={props.propTask.task}
@@ -15,7 +15,8 @@ function ToDoForm(props) {
             <button>Add ToDo</button>
             
             </form>
-            <button>Clear Completed</button>
+
+            <button onClick={props.removeCompleted}>Clear Completed</button>
         </div>
     );
 }

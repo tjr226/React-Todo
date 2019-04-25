@@ -20,23 +20,16 @@ class App extends React.Component {
   };
 
   handleChanges = event => {
-    // console.log(event.target.value);
-    // console.log(event.target.name);
-    //  console.log(event.target.value);
     this.setState({
       taskOnState: {
         ...this.state.taskOnState,
         [event.target.name]: event.target.value
       }
     });
-    console.log(this.state.taskOnState.id);
-
   }
 
   addTask = event => {
-    // console.log('add event firing');
     event.preventDefault();
-    // console.log(this.state.taskOnState);
     this.setState({
       taskList: [...this.state.taskList, this.state.taskOnState],
       taskOnState: {
@@ -45,21 +38,36 @@ class App extends React.Component {
         completed: false,
       },
     });
-    // console.log(this.state.taskList);
-    // console.log(this.state.taskOnState);
-
-    // console.log(this.state.taskList);
   };
+
+  toggleCompleted = id => {
+    this.setState({
+      taskList: this.state.taskList.map(task =>
+        task.id === id ? {...task, completed: !task.completed } : task
+        )
+    });
+  };
+
+  removeCompleted = () => {
+    this.setState({
+      taskList: this.state.taskList.filter(task => !task.completed)
+    });
+  };
+
 
   render() {
     return (
       <div>
         <h2>ToDoApp MVP</h2>
-        <ToDoList taskList={this.state.taskList} />
+        <ToDoList
+          taskList={this.state.taskList}
+          toggleCompleted={this.toggleCompleted}
+        />
         <ToDoForm
           propTask={this.state.taskOnState}
           handleChanges={this.handleChanges}
           addTask={this.addTask}
+          removeCompleted={this.removeCompleted}
         />
       </div>
     );
