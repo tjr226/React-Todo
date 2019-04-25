@@ -29,7 +29,7 @@ class App extends React.Component {
         [event.target.name]: event.target.value
       }
     });
-    // console.log(this.state.taskOnState.id);
+    console.log(this.state.taskOnState.id);
 
   }
 
@@ -45,13 +45,11 @@ class App extends React.Component {
         completed: false,
       },
     });
+    // console.log(this.state.taskList);
     // console.log(this.state.taskOnState);
 
     // console.log(this.state.taskList);
   };
-
-
-
 
   render() {
     return (
